@@ -1,0 +1,6 @@
+dapi_channel: 1
+diameter: 15
+num_channels: 3
+input_folder: '/facility/imganfac/neurogenomics/Testa/Lisa/raw_data'
+output_folder: '/facility/imganfac/neurogenomics/Testa/Lisa/test_output/11-19'
+
