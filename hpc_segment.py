@@ -28,7 +28,7 @@ for file in files:
     print('segmenting ' + file)	
     img = AICSImage(os.path.join(raw_folder, file))  # selects the first scene found
     DAPI_im = np.mean(img.get_image_data("CZYX", S=0, C=dapi_channel), axis=1)
-    model = models.CellposeModel(gpu=True)
+    model = models.CellposeModel()
     masks, flows, styles = model.eval(DAPI_im)
     
     os.makedirs(os.path.join(output_folder, file, 'seg'), exist_ok=True)
