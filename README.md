@@ -2,6 +2,7 @@
 1. clone the repo by opening a terminal and typing `git clone https://github.com/nobias-fht/organoid-cell-spots`
 2. Enter the folder that is made by typing `cd organoid-cell-spots`
 3. Make a conda environment from the enviroment file by typing `conda create -f env.yaml`
+4. For HPC, you will need to downgrade the version of pytorch by typing `pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu128`
 
 ### Step 1: Cell Segmentation
 1. Activate the conda enviroment by typing `conda activate nobias`
