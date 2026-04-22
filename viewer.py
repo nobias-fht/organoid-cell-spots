@@ -137,6 +137,8 @@ def on_threshold_folder_button_click():
     folders = os.listdir(folder_path)
     channel_name = dropdown_filename.currentText()
     for folder in folders:
+        if folder == '.DS_Store':
+            continue
         print('running folder: ' + folder)
         cell_sums = []
         cell_means = []
