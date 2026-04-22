@@ -40,5 +40,5 @@ for file in files:
         if i != dapi_channel:
             ch_im = np.mean(img.get_image_data("CZYX", S=0, C=i), axis=1)
             os.makedirs(os.path.join(output_folder, file, 'ch' + str(i+1)), exist_ok=True)
-            skimage.io.imsave(os.path.join(output_folder, file, 'ch' + str(i+1) ,file[:-4] + '.tif'), ch_im, check_contrast=False))
+            skimage.io.imsave(os.path.join(output_folder, file, 'ch' + str(i+1) ,file[:-4] + '.tif'), ch_im, check_contrast=False)
     
