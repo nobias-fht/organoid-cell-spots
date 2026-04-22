@@ -153,15 +153,17 @@ def on_threshold_folder_button_click():
         thresh_mask = im > (thresh * multiplier)
         props = skimage.measure.regionprops(seg)
         for prop in tqdm(props):
-            cell_labs.append(prop['label'])
-            mask = (seg == prop['label']) & thresh_mask
-            cell_sums.append(round(im[mask].sum(), 2))
-            cell_means.append(round(im[mask].mean(),2))
-            cell_total_area.append(prop['area'])
-            cell_total_intensity.append(round(im[seg == prop['label']].sum(), 2))
-            cell_mean_intensity.append(round(im[seg == prop['label']].mean(), 2))
-            cell_thresh_area.append(np.sum(mask))
-
+            try:
+                cell_labs.append(prop['label'])
+                mask = (seg == prop['label']) & thresh_mask
+                cell_sums.append(round(im[mask].sum(), 2))
+                cell_means.append(round(im[mask].mean(),2))
+                cell_total_area.append(prop['area'])
+                cell_total_intensity.append(round(im[seg == prop['label']].sum(), 2))
+                cell_mean_intensity.append(round(im[seg == prop['label']].mean(), 2))
+                cell_thresh_area.append(np.sum(mask))
+            except:
+                print('error with cell ' + str(prop['label']))
 
         df['label'] = cell_labs
         df['total_sum_intensity'] = cell_total_intensity
